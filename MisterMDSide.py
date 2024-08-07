@@ -39,4 +39,4 @@ def getPlayersCurrentMister(driver):
     player_names = [player.get_attribute("data-title") for player in player_elements]
 
     # Print the extracted player names
-    print(player_names)
+    return player_names

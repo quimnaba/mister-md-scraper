@@ -9,7 +9,8 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 import MisterMDSide as mister
-import PrivateData as pvdata
+import AnaliticasFantasy as af
+
 
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")  # Open Chrome in maximized mode
@@ -35,8 +36,7 @@ for i in range(4):
 
 #Login to market page
 mister.loginToPage(driver, wait)
-mister.getPlayersCurrentMister(driver)
+in_market = mister.getPlayersCurrentMister(driver)
+list_of_chollos = af.retrieve_chollos()
 
-# Store the information in a pandas dataframe
-# df = pd.DataFrame(movies, columns=['Title', 'Year', 'Rating'])
 
