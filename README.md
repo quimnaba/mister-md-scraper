@@ -4,6 +4,10 @@ This Python script helps you to identify players available in the market who are
 according to a predefined list. It compares the current market players with a list of chollos and suggests which players 
 you should sign.
 
+Good to know: The Chrome driver sometimes fail. Just run again the program. The MD page runs a bit slow, but if it gets stuck you can 
+accelerate the script by clicking the "market" icon. You can also take advantadge of the processing time to select 
+another account if you want to check great deals in other Fantasies.
+
 ## Features
 - **Fetch Market Players:** Retrieves the list of players currently available in the market.
 - **Fetch Chollos:** Retrieves the list of great deals considered by www.analiticafantasy.com
@@ -34,12 +38,12 @@ you should sign.
     ```
 
 ## Usage
+0. Insert your **MD Fantasy credentials** in PrivateData.py
 
 1. **Run the script:**
     ```bash
     ./run.sh
     ```
-
 2. **Output:**
    - If there are no chollos in the market: "No chollos in the market. Save the money for tomorrow!"
    - If chollos are found, the script will suggest the players to sign.
@@ -53,3 +57,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Next steps
 - Run concurrently the 2 drivers (threads)
 - Put more metrics to consider
+- Add error handling

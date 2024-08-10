@@ -13,17 +13,14 @@ def getPlayersCurrentMister():
     chrome_options.add_argument("--disable-infobars")  # Disable infobars
     chrome_options.add_argument("--disable-extensions")  # Disable extensions
     chrome_options.add_argument("--disable-notifications")  # Disable extensions
-    # DISABLE WHEN DEBUGGING
-    chrome_options.add_argument("--headless")  # Run in headless mode
+    # Headless doesnt work with mister for unknown reasons
 
     # ENTER TO MISTER
     driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://mister.mundodeportivo.com/market")
 
-    # Accepto cookies i dono 4 cops a continuar
-    # Wait until the red button is present and clickable, use the text or CSS selector
-    wait = WebDriverWait(driver, 10)  # 2 seconds timeout
-    red_button = driver.find_element(By.ID, "didomi-notice-agree-button")
+    wait = WebDriverWait(driver, 20)
+    red_button = wait.until(EC.presence_of_element_located((By.ID, "didomi-notice-agree-button")))
     red_button.click()
     time.sleep(0.2)
 
@@ -45,10 +42,9 @@ def getPlayersCurrentMister():
     pwd_mister.send_keys(pvdata.pwd)
     driver.find_element(By.CSS_SELECTOR, ".btn.btn--capsule.btn--primary").click()
     time.sleep(0.4)
-    # wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, "navbar-switch-tab")))
     # TODO: Investigate why driver.get takes so long. Maybe remove next wait until.
     driver.get("https://mister.mundodeportivo.com/market")
-    wait.until(EC.presence_of_element_located((By.ID, "btn-filter-market")))
+    wait.until(EC.presence_of_element_located((By.CLASS_NAME, "timer")))
 
     # Extract player names that have no owner
     # Find all <a> elements with data-title inside <li> elements with data-owner="0"

@@ -5,9 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-
-# Retrieve names
-# list_of_chollos = driver.find_elements(By.CLASS_NAME, "player-full__name player-full__name--clickable").get_attribute()
 def retrieve_chollos():
     chrome_options = Options()
     chrome_options.add_argument("--start-maximized")  # Open Chrome in maximized mode
@@ -19,7 +16,7 @@ def retrieve_chollos():
 
     driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://www.analiticafantasy.com/chollos-fantasy/fantasy-relevo")
-    wait = WebDriverWait(driver, 10)  # 10 seconds timeout
+    wait = WebDriverWait(driver, 20)  # 20 seconds timeout
     element = wait.until(
         EC.element_to_be_clickable((By.CSS_SELECTOR, "button[class=' css-y8g67k']"))
     )

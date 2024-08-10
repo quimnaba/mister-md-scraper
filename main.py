@@ -28,7 +28,7 @@ def main():
     if not results:
         print("No chollos in the market. Save the money for tomorrow!")
     for player, chollo in results:
-        print(f"You should sign: {player} Found in the list as {chollo}")
+        print(f"You should sign {player}, found in the list as {chollo}")
 
 if __name__ == "__main__":
     main()
