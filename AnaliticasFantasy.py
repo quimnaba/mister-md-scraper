@@ -14,6 +14,8 @@ def retrieve_chollos():
     chrome_options.add_argument("--disable-infobars")  # Disable infobars
     chrome_options.add_argument("--disable-extensions")  # Disable extensions
     chrome_options.add_argument("--disable-notifications")  # Disable extensions
+    #DISABLE WHEN DEBUGGING
+    chrome_options.add_argument("--headless")  # Run in headless mode
 
     driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://www.analiticafantasy.com/chollos-fantasy/fantasy-relevo")
