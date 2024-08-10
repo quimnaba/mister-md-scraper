@@ -1,42 +1,31 @@
-from bs4 import BeautifulSoup
-import pandas as pd
-import time
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
-
 import MisterMDSide as mister
 import AnaliticasFantasy as af
 
-
-chrome_options = Options()
-chrome_options.add_argument("--start-maximized")  # Open Chrome in maximized mode
-chrome_options.add_argument("--disable-infobars")  # Disable infobars
-chrome_options.add_argument("--disable-extensions")  # Disable extensions
-chrome_options.add_argument("--disable-notifications")  # Disable extensions
-
-driver = webdriver.Chrome(options=chrome_options)
-driver.get("https://mister.mundodeportivo.com/market")
-
-#Accepto cookies i dono 4 cops a continuar
-# Wait until the red button is present and clickable, use the text or CSS selector
-wait = WebDriverWait(driver, 10)  # 2 seconds timeout
-red_button = driver.find_element(By.ID, "didomi-notice-agree-button")
-red_button.click()
-time.sleep(0.2)
-
-for i in range(4):
-    accept = driver.find_element(By.CSS_SELECTOR, ".btn.btn--capsule.btn--primary")
-    time.sleep(0.2)
-    accept.click()
-    time.sleep(0.2)
-
-#Login to market page
-mister.loginToPage(driver, wait)
-in_market = mister.getPlayersCurrentMister(driver)
+#GET MARKET PLAYERS
+in_market = mister.getPlayersCurrentMister()
+#GET CHOLLOS
 list_of_chollos = af.retrieve_chollos()
+
+#FIND COINCIDENCES
+results = []
+for player in in_market:
+    player_parts = player.split()
+    player_firstname = player_parts[0] if len(player_parts) > 1 else None
+    player_surname = player.split()[-1] #Get last name
+    for chollo in list_of_chollos:
+        chollo_parts = chollo.split()
+        chollo_firstname = chollo_parts[0] if len(chollo_parts) > 1 else None
+        chollo_surname = chollo_parts[-1]
+        match = player_surname == chollo_surname
+        if match:
+            if player_firstname and chollo_firstname:  # Check first names if both are available
+                if player_firstname == chollo_firstname:
+                    results.append((player, chollo))
+            else:
+                results.append((player, chollo))
+if not results:
+    print("No chollos in the market. Save the money for tomorrow!")
+for player, chollo in results:
+    print(f"You should sign: {player} Found in the list as {chollo}")
 
 
