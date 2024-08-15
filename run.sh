@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Check if Python is installed
-if ! command -v python3 &> /dev/null
-then
-    echo "Python is not installed. Installing Python..."
-    sudo apt update
-    sudo apt install -y python3
-fi
-
 # Check if venv is available, and install it if necessary
 if ! python3 -m venv --help > /dev/null 2>&1; then
     echo "venv is not installed. Installing venv..."

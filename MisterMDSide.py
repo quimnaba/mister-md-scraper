@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 
 def getPlayersCurrentMister():
     chrome_options = Options()
-    chrome_options.add_argument("--start-maximized")  # Open Chrome in maximized mode
+    # chrome_options.add_argument("--start-maximized")  # Open Chrome in maximized mode
     chrome_options.add_argument("--disable-infobars")  # Disable infobars
     chrome_options.add_argument("--disable-extensions")  # Disable extensions
     chrome_options.add_argument("--disable-notifications")  # Disable extensions
