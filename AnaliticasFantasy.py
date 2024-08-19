@@ -4,6 +4,10 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+import logging
+
+# Configure logging to suppress specific warnings/errors
+logging.basicConfig(level=logging.INFO)  # Only show INFO and above
 
 def retrieve_chollos():
     chrome_options = Options()
@@ -11,8 +15,17 @@ def retrieve_chollos():
     chrome_options.add_argument("--disable-infobars")  # Disable infobars
     chrome_options.add_argument("--disable-extensions")  # Disable extensions
     chrome_options.add_argument("--disable-notifications")  # Disable extensions
+    chrome_options.add_argument("--log-level=3")  # Suppress logs
+    chrome_options.add_argument("--no-default-browser-check")  # Disable the default browser check
+    chrome_options.add_argument("--default-browser-check=no")
+    chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
     #DISABLE WHEN DEBUGGING
-    chrome_options.add_argument("--headless")  # Run in headless mode
+    # chrome_options.add_argument("--headless")  # Run in headless mode
+    # Headless produce SSL errors, so I deactivated it.
+
+    # Suppress SSL certificate errors
+    chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options.add_argument('--allow-running-insecure-content')
 
     driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://www.analiticafantasy.com/chollos-fantasy/fantasy-relevo")

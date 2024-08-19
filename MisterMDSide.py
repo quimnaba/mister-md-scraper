@@ -13,6 +13,10 @@ def getPlayersCurrentMister():
     chrome_options.add_argument("--disable-infobars")  # Disable infobars
     chrome_options.add_argument("--disable-extensions")  # Disable extensions
     chrome_options.add_argument("--disable-notifications")  # Disable extensions
+    chrome_options.add_argument("--log-level=3")  # Suppress logs
+    chrome_options.add_argument("--no-default-browser-check")  # Disable the default browser check
+    chrome_options.add_argument("--default-browser-check=no")
+    chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
     # Headless doesnt work with mister for unknown reasons
 
     # ENTER TO MISTER
