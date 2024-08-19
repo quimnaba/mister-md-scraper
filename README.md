@@ -1,17 +1,19 @@
 # MD Fantasy Football Chollo Finder
 
 This Python script helps you to identify players available in the market who are considered "chollos" **(great deals)** 
-according to a predefined list. It compares the current market players with a list of chollos and suggests which players 
-you should sign.
+according to a predefined list. It compares the current market players with a list of chollos and **suggests which players 
+you should sign**.
 
-Good to know: The Chrome driver sometimes fail. Just run again the program. The MD page runs a bit slow, but if it gets stuck you can 
-accelerate the script by clicking the "market" icon. You can also take advantadge of the processing time to select 
-another account if you want to check great deals in other Fantasies.
+The goal of this project is to prevent the user from spending much time on searching through barely known football players to
+set the perfect bid on them, and also to reaffirm the user's criteria when it wants to set the bid.
+
+Good to know: If you have multiple accounts, the script will run in the last account you had open. You can change the account before
+running the script, or in the browser when it opens automatically in the screen.
 
 ## Features
 - **Fetch Market Players:** Retrieves the list of players currently available in the market.
-- **Fetch Chollos:** Retrieves the list of great deals considered by www.analiticafantasy.com
-- **Recommendation:** Just find matches in both lists to return the best deals in MD Fantasy.
+- **Fetch Chollos:** Retrieves the list of great deals considered by **www.analiticafantasy.com**
+- **Shows Recommendations:** It finds matches in both lists to return the **best deals in MD Fantasy**.
 
 ## Required software
 - Python (developed with v.3.8.10)
@@ -24,26 +26,22 @@ another account if you want to check great deals in other Fantasies.
     ```bash
     git clone https://github.com/quimnaba/mister-md-scrapper.git
     ```
-
-2. **Create and activate a virtual environment (optional but recommended):**
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate (Linux)
-    venv/bin/activate (Windows)
-    ```
-
-3. **Install the required dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
+    Or just download the files in a folder.
 ## Usage
-0. Insert your **MD Fantasy credentials** in PrivateData.py
+0. Insert your **MD Fantasy credentials** in PrivateData.py, like:
+```
+user_email="xxxxxxxx@gmail.com"
+pwd = "xxxxxxxxx"
+```
 
 1. **Run the script:**
+- In Linux:
     ```bash
     ./run.sh
     ```
+- In Windows:
+    Open run.bat
+
 2. **Output:**
    - If there are no chollos in the market: "No chollos in the market. Save the money for tomorrow!"
    - If chollos are found, the script will suggest the players to sign.
@@ -51,10 +49,9 @@ another account if you want to check great deals in other Fantasies.
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue for any bug fixes or improvements.
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Next steps
 - Run concurrently the 2 drivers (threads)
 - Put more metrics to consider
 - Add error handling
+- Add headless mode
+- Clean Code
