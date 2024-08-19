@@ -1,19 +1,21 @@
-# MD Fantasy Football Chollo Finder
+# MD Fantasy Football Chollo Finder 
 
-This Python script helps you to identify players available in the market who are considered "chollos" **(great deals)** 
-according to a predefined list. It compares the current market players with a list of chollos and **suggests which players 
+This Python script is designed to help you quickly identify "chollos" (great deals) in the Mister Fantasy Football market, 
+specifically for the Spanish first division, **La Liga**, in the **Mister Fantasy MD** application (BeManager).
+
+The application compares the players currently available on the market with a predefined list of chollos, and the script **suggests which players 
 you should sign**.
 
-The goal of this project is to prevent the user from spending much time on searching through barely known football players to
-set the perfect bid on them, and also to reaffirm the user's criteria when it wants to set the bid.
+The purpose of this project is to save users time by streamlining the process of finding valuable yet lesser-known football players. 
+It also serves to **validate the user's bidding criteria**, ensuring you make informed decisions when placing bids.
 
-Good to know: If you have multiple accounts, the script will run in the last account you had open. You can change the account before
-running the script, or in the browser when it opens automatically in the screen.
+**Important**: If you have multiple accounts, the script will run in the last account you had open. You can either switch accounts before
+running the script, or change accounts in the browser when it opens automatically.
 
 ## Features
-- **Fetch Market Players:** Retrieves the list of players currently available in the market.
-- **Fetch Chollos:** Retrieves the list of great deals considered by **www.analiticafantasy.com**
-- **Shows Recommendations:** It finds matches in both lists to return the **best deals in MD Fantasy**.
+- **Market Player Retrieval:** Automatically fetches the list of players currently available on the market.
+- **Chollo detection:** Retrieves and compares players against the list of chollos provided **www.analiticafantasy.com**
+- **Personalized Recommendations:** Identifies and suggests the best deals available on MD Fantasy.
 
 ## Required software
 - Python (developed with v.3.8.10)
@@ -28,30 +30,33 @@ running the script, or in the browser when it opens automatically in the screen.
     ```
     Or just download the files in a folder.
 ## Usage
-0. Insert your **MD Fantasy credentials** in PrivateData.py, like:
+0. Open PrivateData.py and insert your **MD Fantasy credentials**:
+```python
+user_email = "your_email@example.com"
+pwd = "your_password"
+
 ```
-user_email="xxxxxxxx@gmail.com"
-pwd = "xxxxxxxxx"
-```
+Never post or push this file on internet.
 
 1. **Run the script:**
-- In Linux:
+- On Linux:
     ```bash
     ./run.sh
     ```
-- In Windows:
-    Open run.bat
+- On Windows:
+    Double click 'run.bat'.
 
-2. **Output:**
-   - If there are no chollos in the market: "No chollos in the market. Save the money for tomorrow!"
-   - If chollos are found, the script will suggest the players to sign.
+2. **View Console Output:**
+   - No Chollos found: 
+        - Message: "No chollos in the market. Save the money for tomorrow!"
+   - Chollos found:
+        - The script will suggest players you should consider signing.
 
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue for any bug fixes or improvements.
 
-## Next steps
-- Run concurrently the 2 drivers (threads)
-- Put more metrics to consider
-- Add error handling
-- Add headless mode
+## Future enhancements
+- Implement concurrent execution of the 2 drivers (using threads)
+- Incorporate additional metrics for better player evaluation
+- Add headless mode for chrome drivers
 - Clean Code
