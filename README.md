@@ -1,6 +1,6 @@
-# MD Fantasy Football Chollo Finder 
+# MD Fantasy Football Chollo Finder - La Liga
 
-This Python script is designed to help you quickly identify "chollos" (great deals) in the Mister Fantasy Football market, 
+This Python script is designed to help you quickly identify "chollos" (bargains) in the Mister Fantasy Football market, 
 specifically for the Spanish first division, **La Liga**, in the **Mister Fantasy MD** application (BeManager).
 
 The application compares the players currently available on the market with a predefined list of chollos, and the script **suggests which players 

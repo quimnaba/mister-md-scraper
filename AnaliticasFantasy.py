@@ -16,8 +16,7 @@ def retrieve_chollos():
     chrome_options.add_argument("--disable-extensions")  # Disable extensions
     chrome_options.add_argument("--disable-notifications")  # Disable extensions
     chrome_options.add_argument("--log-level=3")  # Suppress logs
-    chrome_options.add_argument("--no-default-browser-check")  # Disable the default browser check
-    chrome_options.add_argument("--default-browser-check=no")
+    chrome_options.add_argument("--disable-search-engine-choice-screen")
     chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
     #DISABLE WHEN DEBUGGING
     # chrome_options.add_argument("--headless")  # Run in headless mode

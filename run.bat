@@ -25,10 +25,11 @@ pip install -r requirements.txt
 REM run main.py
 echo Running main.py...
 python main.py
+pause 
 
 REM Deactivating venv
 echo Deactivating the virtual environment...
 deactivate
 
 echo Execution finished.
-pause
+
