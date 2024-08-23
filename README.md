@@ -24,14 +24,14 @@ running the script, or change accounts in the browser when it opens automaticall
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/quimnaba/mister-md-scrapper.git
+    git clone https://github.com/quimnaba/mister-md-scraper.git
     ```
     Or just download the files in a folder.
 ## Usage
 0. Open PrivateData.json and insert your **MD Fantasy credentials**:
-```python
-user_email = "your_email@example.com"
-pwd = "your_password"
+```json
+"user_email": "your_email@example.com"
+"pwd": "your_password"
 
 ```
 Never post or push this file on internet.
