@@ -1,4 +1,4 @@
-import PrivateData as pvdata
+import json
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from selenium import webdriver
@@ -9,7 +9,6 @@ from selenium.webdriver.common.by import By
 
 def getPlayersCurrentMister():
     chrome_options = Options()
-    # chrome_options.add_argument("--start-maximized")  # Open Chrome in maximized mode
     chrome_options.add_argument("--disable-infobars")  # Disable infobars
     chrome_options.add_argument("--disable-extensions")  # Disable extensions
     chrome_options.add_argument("--disable-notifications")  # Disable extensions
@@ -37,15 +36,18 @@ def getPlayersCurrentMister():
     set_email.click()
 
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "#email")))
+    
+    with open('PrivateData.json') as f:
+        pvdata = json.load(f)
+
     write_email = driver.find_element(By.CSS_SELECTOR, "#email")
-    write_email.send_keys(pvdata.user_email)
+    write_email.send_keys(pvdata["user_email"])
     driver.find_element(By.CSS_SELECTOR, ".btn.btn--capsule.btn--primary").click()
     wait.until(EC.presence_of_element_located((By.XPATH, "//*[@id='app']/div/div[2]/div/form/div[2]/input")))
     pwd_mister = driver.find_element(By.XPATH, "//*[@id='app']/div/div[2]/div/form/div[2]/input")
-    pwd_mister.send_keys(pvdata.pwd)
+    pwd_mister.send_keys(pvdata["pwd"])
     driver.find_element(By.CSS_SELECTOR, ".btn.btn--capsule.btn--primary").click()
     time.sleep(0.4)
-    # TODO: Investigate why driver.get takes so long. Maybe remove next wait until.
     driver.get("https://mister.mundodeportivo.com/market")
     wait.until(EC.presence_of_element_located((By.CLASS_NAME, "timer")))
 

@@ -11,7 +11,6 @@ logging.basicConfig(level=logging.INFO)  # Only show INFO and above
 
 def retrieve_chollos():
     chrome_options = Options()
-    chrome_options.add_argument("--start-maximized")  # Open Chrome in maximized mode
     chrome_options.add_argument("--disable-infobars")  # Disable infobars
     chrome_options.add_argument("--disable-extensions")  # Disable extensions
     chrome_options.add_argument("--disable-notifications")  # Disable extensions

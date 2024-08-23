@@ -16,7 +16,7 @@ class NameUtils:
         firstname = name_parts[0] if len(name_parts) > 1 else None
         surname = name_parts[-1]
 
-        if surname and surname.lower() in ("jr", "jr.", "junior", "júnior"):
+        if surname and surname.lower() == ("jr" or "jr." or "junior" or "júnior"):
             surname = None
 
         normalized_surname = NameUtils.normalize_string(surname) if surname else None
