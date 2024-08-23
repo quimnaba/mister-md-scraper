@@ -18,22 +18,20 @@ running the script, or change accounts in the browser when it opens automaticall
 - **Personalized Recommendations:** Identifies and suggests the best deals available on MD Fantasy.
 
 ## Required software
-- Python (developed with v.3.8.10)
-- Git
 - Google Chrome
 
 ## Installation
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/quimnaba/mister-md-scrapper.git
+    git clone https://github.com/quimnaba/mister-md-scraper.git
     ```
     Or just download the files in a folder.
 ## Usage
-0. Open PrivateData.py and insert your **MD Fantasy credentials**:
-```python
-user_email = "your_email@example.com"
-pwd = "your_password"
+0. Open PrivateData.json and insert your **MD Fantasy credentials**:
+```json
+"user_email": "your_email@example.com"
+"pwd": "your_password"
 
 ```
 Never post or push this file on internet.
@@ -56,7 +54,5 @@ Never post or push this file on internet.
 Contributions are welcome! Please submit a pull request or open an issue for any bug fixes or improvements.
 
 ## Future enhancements
-- Implement concurrent execution of the 2 drivers (using threads)
 - Incorporate additional metrics for better player evaluation
 - Add headless mode for chrome drivers
-- Clean Code
