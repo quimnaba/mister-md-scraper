@@ -33,7 +33,7 @@ def retrieve_chollos():
     )
     element.click()
     list_of_chollos = []
-    for i in range(10):
+    for i in range(5):
         # Find all elements with the specified class name
         next_button = wait.until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "p.player-full__name.player-full__name--clickable")))
